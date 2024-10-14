@@ -26,7 +26,9 @@ export class HorizontalScrollDirective implements AfterViewInit, OnDestroy {
     const element = this.elementRef.nativeElement;
     
     // Scrollt horizontal, wenn vertikales Scrollen registriert wird
-    element.scrollLeft += event.deltaY;
+    const scrollSpeedMultiplier = 4; // Geschwindigkeit
+    const scrollAmount = event.deltaY * scrollSpeedMultiplier;
+    element.scrollLeft += scrollAmount;
   }
 
   ngOnDestroy(): void {
