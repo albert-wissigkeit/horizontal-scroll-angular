@@ -15,11 +15,23 @@ export class AllPagesComponent {
   isMobileView: boolean = false;
 
   @HostListener('window:resize', ['$event'])
+
   onResize(event: any) {
     this.isMobileView = event.target.innerWidth < 500;
   }
 
   ngOnInit() {
     this.isMobileView = window.innerWidth < 500;
+  }
+
+  scrollToElementWithOffset(elementId: string, offset: number = 0) {
+    const element = document.getElementById(elementId);
+    const container = document.querySelector('section[appHorizontalScroll]');
+    if (element && container) {
+      const elementPosition = element.getBoundingClientRect().left + container.scrollLeft;
+      container.scrollLeft = elementPosition - offset;
+    } else {
+      console.error(`Element mit ID ${elementId} oder Container nicht gefunden.`);
+    }
   }
 }
