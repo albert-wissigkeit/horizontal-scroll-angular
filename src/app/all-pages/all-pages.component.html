@@ -1,11 +1,30 @@
 <!-- already possible to scroll horizontally with holding shift + mousewheelscroll but we want it without holding shift, for that we need a directive seen here: https://stackblitz.com/edit/angular-ivy-horizontal-scroll-with-mousewheel-directive?file=src%2Fapp%2Fhorizontal-scroll.directive.ts -->
-<section appHorizontalScroll>
-    <div class="sticky">
-        <a href="#first">to first</a>
-        <a href="#second">to second</a>
-        <a href="#third">to third</a>
-    </div>
-    <app-first id="first"></app-first>
-    <app-second id="second"></app-second>
-    <app-third id="third"></app-third>
-</section>
+@if (isMobileView) {
+    <section >
+        <div class="sticky">
+            <a href="#first">to first</a>
+            <a href="#second">to second</a>
+            <a href="#third">to third</a>
+            <a href="#image123">to image</a> 
+            <a href="#imageText">to image-text</a> 
+            <a href="#text123">to text</a> 
+        </div>
+        <app-first id="first"></app-first>
+        <app-second id="second"></app-second>
+        <app-third id="third"></app-third>
+    </section>
+} @else {
+    <section appHorizontalScroll>
+        <div class="sticky">
+            <a href="#first">to first</a>
+            <a href="#second">to second</a>
+            <a href="#third">to third</a>
+            <a href="#image123">to image</a> 
+            <a href="#imageText">to image-text</a> 
+            <a href="#text123">to text</a> 
+        </div>
+        <app-first id="first"></app-first>
+        <app-second id="second"></app-second>
+        <app-third id="third"></app-third>
+    </section> 
+}

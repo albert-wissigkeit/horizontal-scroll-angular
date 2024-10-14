@@ -1,6 +1,8 @@
 section {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    min-width: 100vw;
+    width: 100%;
     background-color: rgba(128, 255, 0, 0.353);
     color: red;
     font-size: 100px;

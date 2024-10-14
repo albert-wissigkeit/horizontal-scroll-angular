@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { FirstComponent } from "../first/first.component";
 import { SecondComponent } from "../second/second.component";
 import { ThirdComponent } from "../third/third.component";
@@ -12,5 +12,14 @@ import { HorizontalScrollDirective } from '../horizontal-scroll.directive';
   styleUrl: './all-pages.component.scss'
 })
 export class AllPagesComponent {
+  isMobileView: boolean = false;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobileView = event.target.innerWidth < 500;
+  }
+
+  ngOnInit() {
+    this.isMobileView = window.innerWidth < 500;
+  }
 }

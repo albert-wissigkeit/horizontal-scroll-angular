@@ -5,6 +5,10 @@ section {
   scroll-behavior: smooth;
 }
 
+section::-webkit-scrollbar {
+  display: none;
+}
+
 .sticky {
   position: sticky;
   left: 0;
@@ -15,5 +19,11 @@ section {
   a {
     color: rgb(9, 186, 20);
     font-size: 30px;
+  }
+}
+
+@media (max-width: 500px){
+  section{
+    flex-direction: column;    //column for responsive!
   }
 }
